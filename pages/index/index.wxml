@@ -1,2 +1,69 @@
-<text class="iconfont icon-shoucang1"></text>
+<!-- 搜索框 -->
+<SearchInput></SearchInput>
+
+<!-- 轮播图 -->
+<view class="index_swiper">
+<!-- 
+    swiper 标签默认高度 150px
+    image  标签的默认高度 240px
+           mode="widthFix" 高度自适应
+    让swiper标签的高度 变成 图片的高度一样！！！
+  原图的宽度  / 原图的高度 = 变化后的图片的宽度 / 变化后的图片的高度？？
+  750px /  340px = 750rpx / height?
+  height: 340rpx;
+   -->
+    <swiper indicator-dots autoplay circular>
+        <swiper-item 
+        wx:for="{{swiperList}}"
+        wx:key="goods_id"
+        >
+            <navigator >
+                <image mode="widthFix" src="{{item.image_src}}"></image>
+            </navigator>
+              
+              
+        </swiper-item>
+          
+    </swiper>
+</view>
+  
+<!-- 导航 -->
+<view class="index_cate">
+    <navigator
+    wx:for="{{navCateList}}"
+    wx:key="name"
+    >
+        <image mode="widthFix" src="{{item.image_src}}"/>
+          
+    </navigator>
+      
+</view>
+
+<!-- 商品楼层 -->
+<view class="index_floor">
+    <view class="floor_item"
+    wx:for="{{floorList}}"
+    wx:for-index="index1"
+    wx:for-item="item1"
+    wx:key="item"
+    >
+        <view class="floor_title">
+            <image mode="widthFix" src="{{item1.floor_title.image_src}}" />
+              
+        </view>
+        <view class="floor_list">
+            <navigator
+            wx:for="{{item1.product_list}}"
+            wx:for-index="index2"
+            wx:for-item="item2"
+            wx:key="name"
+            >
+                <image mode="{{index2===0?'widthFix':'scaleToFill'}}" src="{{item2.image_src}}"/>
+                  
+            </navigator>
+              
+        </view>
+    </view>
+      
+</view>
   
