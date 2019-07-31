@@ -1,4 +1,6 @@
-// pages/index/index.js
+// 引入自己封装的接口代码，小程序中要引入完整的路径
+import { request } from"../../request/index.js";
+
 Page({
 
   /**
@@ -14,38 +16,58 @@ Page({
   },
   // 获取轮播图数据
   getswiperList(){
-    wx.request({
-      url:'https://api.zbztb.cn/api/public/v1/home/swiperdata',
-     success:(result)=>{
-      //  console.log(result);
-       this.setData({
-        swiperList:result.data.message
-       })
-     }
+    // wx.request({
+    //   url:'https://api.zbztb.cn/api/public/v1/home/swiperdata',
+    //  success:(result)=>{
+    //   //  console.log(result);
+    //    this.setData({
+    //     swiperList:result.data.message
+    //    })
+    //  }
+    // })
+
+    // 回调地狱
+    request({url:'/home/swiperdata'})
+    .then(result=>{
+      this.setData({
+        swiperList:result
+      })
     })
   },
   // 获取导航数据
   getNavCateList(){
-    wx.request({
-      url:'https://api.zbztb.cn/api/public/v1/home/catitems',
-      success:(result)=>{
-        console.log(result);
-        this.setData({
-          navCateList:result.data.message
-        })
-      }
+    // wx.request({
+    //   url:'https://api.zbztb.cn/api/public/v1/home/catitems',
+    //   success:(result)=>{
+    //     console.log(result);
+    //     this.setData({
+    //       navCateList:result.data.message
+    //     })
+    //   }
+    // })
+    request({url:'/home/catitems'})
+    .then(result=>{
+      this.setData({
+        navCateList:result
+      })
     })
   },
   // 获取商品楼层数据
   getFloorList(){
-    wx.request({
-      url:'https://api.zbztb.cn/api/public/v1/home/floordata',
-      success:(result)=>{
-        console.log(result)
-        this.setData({
-          floorList:result.data.message
-        })
-      }
+    // wx.request({
+    //   url:'https://api.zbztb.cn/api/public/v1/home/floordata',
+    //   success:(result)=>{
+    //     console.log(result)
+    //     this.setData({
+    //       floorList:result.data.message
+    //     })
+    //   }
+    // })
+    request({url:'/home/floordata'})
+    .then(result=>{
+      this.setData({
+        floorList:result
+      })
     })
   },
 
