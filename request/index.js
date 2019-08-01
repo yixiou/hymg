@@ -16,6 +16,7 @@ export const request=(params)=>{
             fail:(err)=>{
                 reject(err);
             },
+            // 不管成功还是失败都会执行的代码
             complete:()=>{
                 ajaxTimes--;
                 if(ajaxTimes === 0){
