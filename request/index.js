@@ -1,4 +1,9 @@
+// 同时发送的ajax次数
+let ajaxTimes = 0;
 export const request=(params)=>{
+    ajaxTimes++;
+    // 显示真正等待的图标
+    wx.showLoading({title:'加载中'});
     // 公共接口前缀
     const baseUrl="https://api.zbztb.cn/api/public/v1";
     return new Promise((resolve,reject)=>{
@@ -10,6 +15,14 @@ export const request=(params)=>{
             },
             fail:(err)=>{
                 reject(err);
+            },
+            complete:()=>{
+                ajaxTimes--;
+                if(ajaxTimes === 0){
+                // 最后一个请求回来，关闭正在等待的图标
+                wx.hideLoading();
+                }
+                
             }
         })
     })

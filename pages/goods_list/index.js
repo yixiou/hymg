@@ -27,6 +27,7 @@
     4 数据请求回来后 手动关闭 页面的下拉刷新效果 
 */
 import { request } from "../../request/index.js";
+import regeneratorRuntime from'../../lib/runtime/runtime.js'
 Page({
 
   /**
@@ -55,20 +56,28 @@ Page({
   // 总页数
   TotalPages:1,
   // 获取商品列表数据
-  getGoodsList(){
-    request({url:'/goods/search',data:this.QueryParams})
-    .then(result=>{
-      console.log(result);
-      // 计算总页数
-      this.TotalPages = Math.ceil(result.total / this.QueryParams.pagesize)
-      this.setData({
-        // goodsList:[...result.goods]
-        // 拼接数据
+  // getGoodsList(){
+  //   request({url:'/goods/search',data:this.QueryParams})
+  //   .then(result=>{
+  //     console.log(result);
+  //     // 计算总页数
+  //     this.TotalPages = Math.ceil(result.total / this.QueryParams.pagesize)
+  //     this.setData({
+  //       // goodsList:[...result.goods]
+  //       // 拼接数据
+  //       goodsList:[...this.data.goodsList,...result.goods]
+  //     })
+  //     // 关闭页面的下拉刷新效果
+  //     wx.stopPullDownRefresh();
+  //   })
+  // },
+  async getGoodsList(){
+    const result = await request({url:'/goods/search',data:this.QueryParams})
+    this.TotalPages=Math.ceil(result.total / this.QueryParams.pagesize);
+    this.setData({
         goodsList:[...this.data.goodsList,...result.goods]
-      })
-      // 关闭页面的下拉刷新效果
-      wx.stopPullDownRefresh();
-    })
+          })
+        wx.stopPullDownRefresh();
   },
   // 子组件触发的事件
   handleItemChange(e){
