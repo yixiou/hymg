@@ -1,0 +1,54 @@
+.cate_container{
+/* 
+高度=视口的高度-头部搜索框的高度
+calc 100vh(calc可以让less不要编译它的代码，原样输出)
+*/
+height: ~"calc(100vh-90rpx)";
+display: flex;
+.left_menu{
+    // 子项的高度等于父项的高度
+    flex: 1;
+    .menu_item{
+        height: 80rpx;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30rpx;
+    }
+    .active{
+        color:var(--themeColor);
+        border-left: 5rpx solid currentColor;
+    }
+}
+.right_content{
+    flex: 3;
+    .goods_group{
+        .goods_title{
+            height: 80rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .delimiter{ color: #ccc;}
+            .goods_name{
+                color: #000;
+                font-size: 30rpx;
+                padding:0 10rpx;
+            }
+        }
+        .goods_list{
+            display: flex;
+            flex-wrap: wrap;
+            navigator{
+                width: 33.33%;
+                text-align: center;
+                image{
+                    width: 50%;
+                }
+                .goods_cat_name{}
+            }
+            
+        }
+    }
+}
+
+}
