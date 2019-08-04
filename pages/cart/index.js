@@ -48,7 +48,7 @@
 */
 import regeneratorRuntime from '../../lib/runtime/runtime';
 import { getSetting, openSetting, chooseAddress,showModal,showToast } from "../../utils/asyncWx";
-import { getStorageCart,setStorageCart} from "../../utils/storage.js";
+import { getStorageCart,setStorageCart,setStorageAddress, getStorageAddress} from "../../utils/storage.js";
 Page({
 
   /**
@@ -84,7 +84,8 @@ Page({
     // 1.3 存入到本地存储中
     // res3.all = res3.provinceName + res3.cityName + res3.countyName + res3.detailInfo;
     res2.all = res2.provinceName+res2.cityName+res2.countyName+res2.detailInfo;
-    wx.setStorageSync('address',res2);
+    // wx.setStorageSync('address',res2);
+    setStorageAddress(res2);
     // console.log(this.data.address);
 
   },
@@ -216,8 +217,10 @@ Page({
    */
   onShow: function () {
     // this.setData({address:wx.getStorageSync("address")||{}});
-    const address = wx.getStorageSync('address')||{};
-    const cart = wx.getStorageSync('cart')||{};
+    // const address = wx.getStorageSync('address')||{};
+    // const cart = wx.getStorageSync('cart')||{};
+    const address = getStorageAddress()||{};
+    const cart = getStorageCart()||{};
     this.setData({address,cart});
     this.setCart(cart);
   //  console.log(cart)

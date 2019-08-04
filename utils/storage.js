@@ -6,7 +6,6 @@
 export const getStorageCart=()=>{
     return wx.getStorageSync("cart");      
 }
-
 /**
  * 设置购物车到本地存储中
  * @param { Object } obj 要填充的数据
@@ -15,11 +14,13 @@ export const setStorageCart=(obj)=>{
     wx.setStorageSync("cart",obj);      
 }
 
+
+
+
 // 获取本地存储中的分类商品数据
 export const getStorageCate=()=>{
     return wx.getStorageSync("cate");      
 }
-
 /**
  * 设置分类商品数据到本地存储中
  * @param { Object } obj 要填充的数据
@@ -28,3 +29,18 @@ export const setStorageCate=(obj)=>{
     wx.setStorageSync("cate",obj);      
 }
 
+
+
+/**
+ * 把地址信息 存入到缓存中
+ * @param {object} address 要存入的购物车对象
+ */
+export const setStorageAddress = (address) => {
+    wx.setStorageSync("address", address);
+  }
+  /**
+   * 获取缓存中的地址信息
+   */
+  export const getStorageAddress = () => {
+    return wx.getStorageSync("address");
+  }
