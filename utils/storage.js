@@ -44,3 +44,20 @@ export const setStorageAddress = (address) => {
   export const getStorageAddress = () => {
     return wx.getStorageSync("address");
   }
+
+
+
+
+  /**
+ * 把 token 存入到缓存中
+ * @param {object} token 要存入的token
+ */
+export const setStorageToken = (token) => {
+    wx.setStorageSync("token", token);
+  }
+  /**
+   * 获取缓存中的token
+   */
+  export const getStorageToken = () => {
+    return wx.getStorageSync("token");
+  }
