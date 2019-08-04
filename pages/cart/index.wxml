@@ -27,7 +27,7 @@
 <view class="cart_main">
     <view class="cart_main_title">购物车</view>
     <view class="cart_main_content">
-        <block>
+        <block wx:if="{{hasGoods}}">
             <view class="cart_item"
                 wx:for="{{cart}}"
                 wx:for-index="key"
@@ -69,8 +69,14 @@
                 </view>
             </view>
         </block>
+        <block wx:else>
+            <view class="empty_img_wrap">
+                <image mode="widthFix"
+                    src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564833064883&di=751ab54dae1a6e0f71780fe3ebc935f7&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2Fe1b1467beea0a9c7d6a56b32bac6d7e5dcd914f7c3e6-YTwUd6_fw658"
+                    ></image>
+            </view>
+        </block>
     </view>
-
 </view>
 
 <!-- 底部结算价格 -->

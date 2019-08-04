@@ -113,7 +113,7 @@ Page({
     isAllChecked = cartArr.length === 0 ? false:isAllChecked;
     // 判断购物车内有没有商品
     const hasGoods = cartArr.length ?true : false ;
-    this.setData({cart,isAllChecked,totalNum,totalPrice});
+    this.setData({cart,isAllChecked,totalNum,totalPrice,hasGoods});
     setStorageCart(cart);
   },
   // 点击单选框
