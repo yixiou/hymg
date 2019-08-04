@@ -1,0 +1,109 @@
+// 底部工具栏固定定位后会将图文详情的部分内容遮住
+page{
+    padding-bottom: 90rpx;
+}
+
+// 轮播图
+.detail_swiper{
+
+    swiper{
+        height: 57vw;
+        text-align: center;
+        swiper-item{
+            image{ width: 50%;}
+        }
+    }
+}
+// 商品信息
+.goods_price{
+    color:var(--themeColor);
+    font-size: 36rpx;   
+    font-weight: 600;
+    padding: 20rpx 10rpx;
+}
+.goods_name_wrap{
+    display: flex;
+    padding: 10rpx;
+    .goods_name{
+        flex: 4;
+        color:#666;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp:2;
+    }
+    .goods_name_icon{
+        flex: 1;
+        display: flex;
+        border-left: 1rpx solid #dedede;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        
+        .icon-shoucang{ font-size: 40rpx;}
+        .icon_name{}
+    }
+}
+// 图文详情
+.goods_detail{
+    border-top: 10rpx solid #dedede;
+    padding:20rpx;
+    .goods_detail_title{
+        color: var(--themeColor);
+        font-size: 36rpx;
+        font-weight: 600;
+    }
+    .goods_detail_content{
+        padding-top: 20rpx;
+    }
+}
+
+// 底部工具栏
+.btm_tool{
+    height: 90rpx;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: #fff;
+    border-top: 1rpx solid #dedede;
+    .tool_item{   
+        flex: 1.5;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        button{
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+    .btn_cart{
+        flex: 2;
+        background-color: orange;
+        color: #fff;
+        font-size: 30rpx;
+        font-weight: 600;
+
+    }
+    .btn_buy{
+        flex: 2;
+        background-color:orangered;
+        color: #fff;
+        font-size: 30rpx;
+        font-weight: 600;
+    }
+}
+
+
+
+
+
+
+
